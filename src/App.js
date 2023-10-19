@@ -1,5 +1,6 @@
 
-import ContactUsPage from "./ContactUsPage";
+// import ContactUsPage from "./ContactUsPage";
+import CounterPage from "./CounterPage";
 // import NewsPage from "./NewsPage";
 
 function App() {
@@ -8,7 +9,8 @@ function App() {
       <div>
 
           {/* <NewsPage /> */}
-          <ContactUsPage />
+          {/* <ContactUsPage /> */}
+          <CounterPage />
       </div>
 
 
