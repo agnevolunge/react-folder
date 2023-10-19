@@ -1,19 +1,19 @@
 import MapWrapper from './Components/MapWrapper'
 import ShopsWrapper from './Components/ShopsWrapper'
+import Container from './Components/Container/container'
 import './ContactUsPage.css'
 
-function ContactUsPage() {
-return (
-    <div className="container">
-    <div className="content-wrapper">
 
+
+function ContactUsPage() {
+  return (
+    <Container>
+      <div className="content-wrapper">
         <ShopsWrapper />
         <MapWrapper />
-     
-    </div>
-  </div>
-)
-
+      </div>
+    </Container>
+  )
 }
 
 export default ContactUsPage

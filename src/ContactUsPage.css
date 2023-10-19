@@ -1,12 +1,7 @@
 *, *::before, *::after {
     box-sizing: border-box;
   }
-  
-  .container {
-    max-width: 1200px;
-    margin-right: auto;
-    margin-left: auto;
-  }
+
   
   .content-wrapper {
     display: grid;

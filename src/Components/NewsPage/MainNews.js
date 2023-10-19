@@ -23,45 +23,24 @@ const MainNews = () => {
 
     const mainNewsElement = mainNewsData.map((newsItem, index) => {
 
-        console.log(newsItem)
+        let {title, category, date, url, imageSrc, imageAlt} = newsItem
+        
         return (
-
             <NewsItem  
             key = {index}
-            title = {newsItem.title}
-            category = {newsItem.category}
-            date = {newsItem.category}
-            url = {newsItem.url}
-            imageSrc = {newsItem.imageSrc}
-            imageAlt = {newsItem.imageAlt}
+            title = {title}
+            category = {category}
+            date = {date}
+            url = {url}
+            imageSrc = {imageSrc}
+            imageAlt = {imageAlt}
             />
         )
-       
     })
 
     return (
-
         <div className="main-news-list">
-
         {mainNewsElement}
-       {/* <NewsItem 
-            title="Ar „ChatGPT“ užims mūsų darbo vietas?" 
-            category="AI & Deep learning"
-            date="2023-01-27"
-            url="/" 
-            imageSrc="https://codeacademy.lt/wp-content/uploads/2023/01/pexels-christina-morillo-1181467-1536x1025.jpg" 
-            imageAlt="Test"
-       />
-       
-       <NewsItem 
-            title="Ar „ChatGPT“ užims mūsų darbo vietas!" 
-            category="Deep learning"
-            date="2023-04-20"
-            url="/" 
-            imageSrc="https://codeacademy.lt/wp-content/uploads/2023/01/pexels-christina-morillo-1181467-1536x1025.jpg" 
-            imageAlt="Test"
-       /> */}
-
         </div>
     )
 }
