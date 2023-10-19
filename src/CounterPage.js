@@ -6,12 +6,19 @@ const CounterPage = () => {
   const initialNum = 5
   const [num, setNum] = useState(initialNum)
 
-  const minus5Handler = () => setNum(num - 5)
-  const minus2Handler = () => setNum(num - 2)
-  const minus1Handler = () => setNum(num - 1)
-  const plus1Handler = () => setNum(num + 1)
-  const plus2Handler = () => setNum(num + 2)
-  const plus5Handler = () => setNum(num + 5)
+  const minus5Handler = () => setNum(prevNum => prevNum - 5)
+  const minus2Handler = () => setNum(prevNum => prevNum - 2)
+
+  const minus1Handler = () => {
+    // setNum((prevNum) => {
+    //     const updatedNum = prevNum - 1
+    //     return updatedNum
+    // })
+    setNum(prevNum => prevNum - 1)
+  }
+  const plus1Handler = () => setNum(prevNum => prevNum + 1)
+  const plus2Handler = () => setNum(prevNum => prevNum + 2)
+  const plus5Handler = () => setNum(prevNum => prevNum + 5)
 
   const resetHandler = () => setNum(initialNum)
 
