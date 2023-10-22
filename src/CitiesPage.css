@@ -1,0 +1,18 @@
+.cities-list {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 30px;
+
+}
+
+.city-item {
+    background-color: beige;
+    padding: 15px;
+    width: calc(100% - 30px) / 2;
+    
+}
+
+.city-item.last-city-item {
+    width: 100%;
+   
+}

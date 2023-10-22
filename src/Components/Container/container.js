@@ -1,8 +1,8 @@
 import React from 'react'
+import './container.css'
 
 const Container = (props) => {
   const { children } = props
-  
   
   
   return (
