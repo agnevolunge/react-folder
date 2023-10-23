@@ -4,13 +4,10 @@ const CityItem = (props) => {
     const { fullWidth } = props
     const {name, population, isCapital, touristAttractions, location} = props.data
     const {continent, country } = location
-    console.log(name)
-    console.log(population)
-    console.log(isCapital)
-    console.log(touristAttractions)
-    console.log(continent)
-    console.log(country)
-
+   
+    if (!name || !continent || !country) {
+      return
+    }
 
     const capitalClass = isCapital ? 'capital' : ''
 
