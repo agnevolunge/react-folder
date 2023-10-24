@@ -8,6 +8,7 @@ const CarsPage = () => {
 
     const carsData = [
         {
+          id: Math.random(),  
           brand: 'Audi',
           model: 'A3',
           engine: 'electric',
@@ -17,6 +18,7 @@ const CarsPage = () => {
           color: 'black',
         },
         {
+          id: Math.random(), 
           brand: 'Toyota',
           model: 'Rav4',
           engine: 'hybrid',
@@ -26,6 +28,7 @@ const CarsPage = () => {
           color: 'black',
         },
         {
+          id: Math.random(), 
           brand: 'Volkswagen',
           model: 'Passat',
           engine: 'petrol',
@@ -35,6 +38,7 @@ const CarsPage = () => {
           color: 'black',
         },
         {
+          id: Math.random(), 
           brand: 'Suzuki',
           model: 'Vitara',
           engine: 'diesel',
@@ -45,8 +49,16 @@ const CarsPage = () => {
         },
     ]
  
-
     const [cars, setCars] = useState(carsData)
+
+    const removeCarHandler = (removeElementId) => {
+        setCars(prevState => {
+            const newState = prevState.filter(item => item.id !== removeElementId)
+
+            return newState
+        })
+    }
+    // removeCarHandler()
 
     const newCarHandler = (newCar) => {
         setCars(prevState => [newCar, ...prevState])
@@ -58,7 +70,7 @@ const CarsPage = () => {
 
 
         <div className="cars-list">
-            {cars.map((car, index) =>  <CarItem data={car} key={index} />)}
+            {cars.map((car, index) =>  <CarItem onRemoveCar={removeCarHandler} data={car} key={index} />)}
            
         </div>
 
