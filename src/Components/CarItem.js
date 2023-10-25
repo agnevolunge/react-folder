@@ -4,7 +4,6 @@ const CarItem = (props) => {
     const { onRemoveCar } = props
     const { brand, model, color, engine, image, mileage, basePrice, customColor, discount, id} = props.data
   
- 
 
     // if (engine === 'electric') {
     //     enginePrice = 10000

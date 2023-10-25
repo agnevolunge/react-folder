@@ -1,4 +1,6 @@
 
+import { v4 as uuid } from 'uuid'
+
 import CarForm from "./Components/CarForm"
 import CarItem from "./Components/CarItem"
 import Container from "./Components/Container/container"
@@ -8,7 +10,7 @@ const CarsPage = () => {
 
     const carsData = [
         {
-          id: Math.random(),  
+          id: uuid(),  
           brand: 'Audi',
           model: 'A3',
           engine: 'electric',
@@ -18,7 +20,7 @@ const CarsPage = () => {
           color: 'black',
         },
         {
-          id: Math.random(), 
+          id: uuid(),  
           brand: 'Toyota',
           model: 'Rav4',
           engine: 'hybrid',
@@ -28,7 +30,7 @@ const CarsPage = () => {
           color: 'black',
         },
         {
-          id: Math.random(), 
+          id: uuid(), 
           brand: 'Volkswagen',
           model: 'Passat',
           engine: 'petrol',
@@ -38,7 +40,7 @@ const CarsPage = () => {
           color: 'black',
         },
         {
-          id: Math.random(), 
+          id: uuid(),  
           brand: 'Suzuki',
           model: 'Vitara',
           engine: 'diesel',

@@ -1,5 +1,7 @@
 import { useState } from "react"
 
+import {v4 as uuid} from 'uuid'
+
 const CarForm = (props) => {
 
     const { onNewCar } = props
@@ -34,7 +36,7 @@ const CarForm = (props) => {
 
 
         const newCar = {
-            id: Math.random(),
+            id: uuid(),
             brand,
             model,
             engine,
