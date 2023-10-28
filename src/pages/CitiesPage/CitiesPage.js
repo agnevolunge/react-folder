@@ -1,14 +1,16 @@
 import React from 'react'
-import Container from './Components/Container/container'
+import Container from '../../Components/Container/container'
 import { useState } from 'react'
-import CityItem from './Components/cityItem'
+import CityItem from '../../Components/CityItem'
 import './CitiesPage.css'
-import CitiesForm from './Components/CitiesForm'
+import CitiesForm from '../../Components/CitiesForm'
+import { v4 as uuid } from 'uuid'
 
 const CitiesPage = () => {
     
     const citiesData = [
         {
+        id: uuid(),
         name: 'Kaunas',
         population: 200000,
         location: {
@@ -20,6 +22,7 @@ const CitiesPage = () => {
         },
     
         {
+        id: uuid(),
         name: 'Warsaw',
         population: 1780000,
         location: {
@@ -31,6 +34,7 @@ const CitiesPage = () => {
         },
         
         {
+        id: uuid(),   
         name: 'Krakow',
         population: 766000,
         location: {
@@ -42,6 +46,7 @@ const CitiesPage = () => {
         },
     
         {
+        id: uuid(),    
         name: 'Rio de Janeiro',
         population: 6700000,
         location: {
@@ -53,6 +58,7 @@ const CitiesPage = () => {
         },
     
         {
+        id: uuid(),
         name: 'San Francisco',
         population: 800000,
         location: {
@@ -64,6 +70,7 @@ const CitiesPage = () => {
         },
     
         {
+        id: uuid(),
         name: 'Jonava',
         population: 30000,
         location: {
@@ -75,6 +82,7 @@ const CitiesPage = () => {
         },
     
         {
+        id: uuid(),
         name: 'Paris',
         population: 12000000,
         location: {
@@ -86,6 +94,7 @@ const CitiesPage = () => {
         },
     
         {
+        id: uuid(),
         name: 'Barcelona',
         population: 1600000,
         location: {
@@ -97,6 +106,7 @@ const CitiesPage = () => {
         },
     
         {
+        id: uuid(),
         name: 'Alytus',
         population: 50000,
         location: {
@@ -108,6 +118,7 @@ const CitiesPage = () => {
         },
     
         {
+        id: uuid(),
         name: 'Vilnius',
         population: 500000,
         location: {
@@ -119,6 +130,7 @@ const CitiesPage = () => {
         },
     
         {
+        id: uuid(),
         name: 'Sydney',
         population: 5500000,
         location: {
@@ -131,20 +143,51 @@ const CitiesPage = () => {
     ]
 
     const [cities, setCities] = useState(citiesData)
+    const [editCity, setEditCity] = useState(null)
+
+    
+    const addCityHandler = (newCity) => {
+
+        if (editCity) {
+            setCities (prevState => {
+                const editId = editCity.id
+                const editCityIndex = prevState.findIndex(city => city.id === editId)
+                const newState = [...prevState]
+                newState[editCityIndex] = newCity
+
+                setEditCity(null)
+                return newState
+            })
+        } else {
+            setCities(prevState => [newCity, ...prevState])
+        }
+        
+
+    }
+
+    const removeCityHandler = (index) => {
+        setCities(prevState => {
+            const newState = [...prevState]
+            newState.splice(index, 1)
+            return newState
+        })
+    }
+    const editCityHandler = (index) => {
+        console.log(index)
+        const selectedCity = cities[index]
+        setEditCity(selectedCity)
+        }
+
 
     const citiesListElement = cities.map((city, index) => {
         const lastOddElement = index + 1 === cities.length && index % 2 === 0
         
-        return <CityItem key={index} data={city} fullWidth={lastOddElement}/>
+        return <CityItem onCityEdit={editCityHandler} onCityDelete={removeCityHandler} index={index} key={index} data={city} fullWidth={lastOddElement}/>
     })
-
-const AddNewCity = (newCity) => {
-    setCities(prevState => [newCity, ...prevState])
-}
 
   return (
     <Container>
-       <CitiesForm onNewCity={AddNewCity}/>
+       <CitiesForm editCityData={editCity} onNewCity={addCityHandler}/>
       
       <div className="cities-list">
         {citiesListElement}

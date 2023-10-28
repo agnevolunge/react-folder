@@ -1,12 +1,15 @@
 
-import ContactUsPage from "./ContactUsPage";
-import CarsPage from "./CarsPage";
-import CitiesPage from "./CitiesPage";
-import CounterPage from "./CounterPage";
-import NewsPage from "./NewsPage";
+import ContactUsPage from "./pages/ContactUsPage/ContactUsPage";
+import CarsPage from "./pages/CarsPage/CarsPage";
+import CitiesPage from "./pages/CitiesPage/CitiesPage";
+import CounterPage from "./pages/CounterPage/CounterPage";
+import NewsPage from "./pages/NewsPage/NewsPage";
+import TodoPage from "./pages/TodoPage/TodoPage";
 import { Routes } from "react-router-dom";
 import { Route } from "react-router-dom";
 import PageHeader from "./Components/PageHeader/PageHeader";
+import APIChuckNorrisPage from "./pages/APIChuckNorrisPage/APIChuckNorrisPage";
+import APIDogsPage from "./pages/APIDogsPage/APIDogsPage";
 
 function App() {
   return (
@@ -19,7 +22,10 @@ function App() {
           <Route path='/news' element={<NewsPage /> } />
           <Route path='/cities' element={<CitiesPage /> } />
           <Route path='/cars' element={<CarsPage /> } />
+          <Route path='/todo' element={<TodoPage /> } />
           <Route path='/contact-us' element={<ContactUsPage /> } />
+          <Route path='/api/chuck-norris' element={<APIChuckNorrisPage /> } />
+          <Route path='/api/dogs' element={<APIDogsPage /> } />
 
           <Route path='*' element={<h1>404: Page not found</h1>} />
         </Routes>

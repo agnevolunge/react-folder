@@ -1,9 +1,10 @@
-import React from 'react'
+import React, { useEffect } from 'react'
 import { useState } from 'react'
+import {v4 as uuid } from "uuid" 
 
 const CitiesForm = (props) => {
 
-    const {onNewCity } = props
+    const {onNewCity, editCityData } = props
 
     const [name, setName] = useState('')
     const [population, setPopulation] = useState(0)
@@ -12,11 +13,27 @@ const CitiesForm = (props) => {
     const [isCapital, setIsCapital] = useState(false)
     const [touristAttractions, setTouristAttractions] = useState([])
 
+    useEffect (() => {
+        if (editCityData) {
+            console.log(editCityData)
+
+            setName(editCityData.name)
+            setPopulation(editCityData.population)
+            setContinent(editCityData.location.continent)
+            setCountry(editCityData.location.country)
+            setIsCapital(editCityData.isCapital)
+            setTouristAttractions(editCityData.touristAttractions)
+            }
+
+        }, [editCityData])
+   
+        const cityId = editCityData ? editCityData.id : uuid()
 
     const newCityHandler = (event) => {
         event.preventdefault()
         
         const newCity = {
+            id: cityId,
             name,
             population,
             location: {
@@ -53,7 +70,14 @@ const CitiesForm = (props) => {
         setIsCapital(prevState => !prevState)
     }
     const touristAttractionsInputHandler = (event) => {
+
         const enteredValue = event.target.value
+
+        if (!enteredValue) {
+            setTouristAttractions([])
+            return
+        }
+
         const touristAttractionArr = enteredValue.split(',')
         const updatedTouristAttractionsArr = touristAttractionArr.map(location => {
             const trimmedLocation = location.trim()
@@ -138,7 +162,7 @@ const CitiesForm = (props) => {
             </div>
 
 
-            <input type="submit" value="Create new City" />
+            <input type="submit" value={editCityData ? 'Edit City' : 'Create New City'} />
     </form>
   )
 }

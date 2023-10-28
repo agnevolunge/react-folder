@@ -1,5 +1,5 @@
 import React from 'react'
-import Container from "./Components/Container/container"
+import Container from "../../Components/Container/container"
 import { useState } from 'react'
 import "./CounterPage.css"
 

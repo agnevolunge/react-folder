@@ -1,7 +1,7 @@
 
 
 const CarItem = (props) => {
-    const { onRemoveCar } = props
+    const { onRemoveCar, onEditCar } = props
     const { brand, model, color, engine, image, mileage, basePrice, customColor, discount, id} = props.data
   
 
@@ -118,6 +118,7 @@ const CarItem = (props) => {
           </div>
 
           <button onClick={() => onRemoveCar(id)}>Delete</button>
+          <button onClick={() => onEditCar(id)}>Edit</button>
        </div>
   )
 }

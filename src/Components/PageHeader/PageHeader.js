@@ -10,19 +10,29 @@ const PageHeader = () => {
          <nav className='main-navigation'>
           <ul className='nav-list'>
             <li className='nav-item'>
-              <NavLink to='/counter'>Counter Page</NavLink>
+              <NavLink to='/api/chuck-norris'>Chuck API</NavLink>
             </li>
             <li className='nav-item'>
-              <NavLink to='/news'>News Page</NavLink>
+              <NavLink to='/api/dogs'>Dogs API</NavLink>
+            </li>
+
+            <li className='nav-item'>
+              <NavLink to='/counter'>Counter</NavLink>
             </li>
             <li className='nav-item'>
-              <NavLink to='/cities'>Cities Page</NavLink>
+              <NavLink to='/news'>News</NavLink>
             </li>
             <li className='nav-item'>
-              <NavLink to='/cars'>Cars Page</NavLink>
+              <NavLink to='/cities'>Cities</NavLink>
             </li>
             <li className='nav-item'>
-              <NavLink to='/contact-us'>Contact Us Page</NavLink>
+              <NavLink to='/cars'>Cars</NavLink>
+            </li>
+            <li className='nav-item'>
+              <NavLink to='/contact-us'>Contact Us</NavLink>
+            </li>
+            <li className='nav-item'>
+              <NavLink to='/todo'>Todo</NavLink>
             </li>
           </ul>
          </nav>

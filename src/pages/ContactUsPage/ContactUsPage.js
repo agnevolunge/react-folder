@@ -1,6 +1,6 @@
-import MapWrapper from './Components/MapWrapper'
-import ShopsWrapper from './Components/ShopsWrapper'
-import Container from './Components/Container/container'
+import MapWrapper from '../../Components/MapWrapper'
+import ShopsWrapper from '../../Components/ShopsWrapper'
+import Container from '../../Components/Container/container'
 import './ContactUsPage.css'
 
 

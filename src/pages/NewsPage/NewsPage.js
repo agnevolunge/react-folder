@@ -1,5 +1,5 @@
-import MainContent from "./Components/NewsPage/MainContent"
-import SidebarContent from "./Components/NewsPage/SidebarContent"
+import MainContent from "../../Components/NewsPage/MainContent"
+import SidebarContent from "../../Components/NewsPage/SidebarContent"
 import './NewsPage.css'
 
 const NewsPage = () => {

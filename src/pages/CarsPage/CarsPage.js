@@ -1,9 +1,9 @@
 
 import { v4 as uuid } from 'uuid'
 
-import CarForm from "./Components/CarForm"
-import CarItem from "./Components/CarItem"
-import Container from "./Components/Container/container"
+import CarForm from "../../Components/CarForm"
+import CarItem from "../../Components/CarItem"
+import Container from "../../Components/Container/container"
 import { useState } from 'react'
 
 const CarsPage = () => {
@@ -18,6 +18,7 @@ const CarsPage = () => {
           mileage: 20000,
           image: '',
           color: 'black',
+          discount: '',
         },
         {
           id: uuid(),  
@@ -28,6 +29,7 @@ const CarsPage = () => {
           mileage: 2000,
           image: '',
           color: 'black',
+          discount: '',
         },
         {
           id: uuid(), 
@@ -38,6 +40,7 @@ const CarsPage = () => {
           mileage: 110000,
           image: '',
           color: 'black',
+          discount: '',
         },
         {
           id: uuid(),  
@@ -48,10 +51,12 @@ const CarsPage = () => {
           mileage: 1000,
           image: '',
           color: 'black',
+          discount: '',
         },
     ]
  
     const [cars, setCars] = useState(carsData)
+    const [editCar, setEditCar] = useState(null)
 
     const removeCarHandler = (removeElementId) => {
         setCars(prevState => {
@@ -61,18 +66,38 @@ const CarsPage = () => {
         })
     }
     // removeCarHandler()
-
-    const newCarHandler = (newCar) => {
-        setCars(prevState => [newCar, ...prevState])
+    const editCarHandler = (editCarId) => {
+      console.log(editCarId)
+      const selectedEditCar = cars.find((car) => car.id === editCarId)
+      setEditCar(selectedEditCar)
     }
+    
+    const newCarHandler = (newCar) => {
+      if (editCar) {
+        console.log('redaguojame')
+        setCars(prevState => {
+          const editCarId = newCar.id
+          const editCarIndex = prevState.findIndex(car => car.id === editCarId)
+          const newState = [...prevState]
+          newState[editCarIndex] = newCar
+
+          setEditCar(null)
+          return newState
+        })
+      } else {
+        setCars(prevState => [newCar, ...prevState])
+      }
+        
+    }
+    
 
     return (
     <Container>
-       <CarForm onNewCar={newCarHandler}/>
+       <CarForm editCarData={editCar} onNewCar={newCarHandler}/>
 
 
         <div className="cars-list">
-            {cars.map((car, index) =>  <CarItem onRemoveCar={removeCarHandler} data={car} key={index} />)}
+            {cars.map((car, index) =>  <CarItem onEditCar={editCarHandler} onRemoveCar={removeCarHandler} data={car} key={index} />)}
            
         </div>
 
