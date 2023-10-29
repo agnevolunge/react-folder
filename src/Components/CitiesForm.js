@@ -30,7 +30,7 @@ const CitiesForm = (props) => {
         const cityId = editCityData ? editCityData.id : uuid()
 
     const newCityHandler = (event) => {
-        event.preventdefault()
+        event.preventDefault()
         
         const newCity = {
             id: cityId,

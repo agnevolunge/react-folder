@@ -10,6 +10,7 @@ import { Route } from "react-router-dom";
 import PageHeader from "./Components/PageHeader/PageHeader";
 import APIChuckNorrisPage from "./pages/APIChuckNorrisPage/APIChuckNorrisPage";
 import APIDogsPage from "./pages/APIDogsPage/APIDogsPage";
+import AIPage from "./pages/AIPage/AIPage";
 
 function App() {
   return (
@@ -26,6 +27,7 @@ function App() {
           <Route path='/contact-us' element={<ContactUsPage /> } />
           <Route path='/api/chuck-norris' element={<APIChuckNorrisPage /> } />
           <Route path='/api/dogs' element={<APIDogsPage /> } />
+          <Route path='/api/AIPage' element={<AIPage /> } />
 
           <Route path='*' element={<h1>404: Page not found</h1>} />
         </Routes>

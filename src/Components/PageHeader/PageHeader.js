@@ -9,6 +9,9 @@ const PageHeader = () => {
         <Container> 
          <nav className='main-navigation'>
           <ul className='nav-list'>
+          <li className='nav-item'>
+              <NavLink to='/api/AIPage'>AI API</NavLink>
+            </li>
             <li className='nav-item'>
               <NavLink to='/api/chuck-norris'>Chuck API</NavLink>
             </li>
